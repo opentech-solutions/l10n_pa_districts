@@ -20,15 +20,17 @@ class ResCountry(models.Model):
     _inherit = 'res.country'
 
     cities_or_districts = fields.Boolean(
-        string='Use "Districts" terminology',
+        string='Uses "Districts" terminology',
         default=True,
         help=(
-            "If checked (default), the standard Odoo terminology is used "
-            "and the subdivision below 'state_id' is rendered as 'City'.\n"
-            "If unchecked, the subdivision is rendered as 'District' "
-            "(or its equivalent translation, e.g. 'Distrito' in Spanish). "
-            "Use this for countries whose administrative divisions below "
-            "the province/state are formally called districts "
-            "(e.g. Panama, where the unit is the 'distrito')."
+            "Indicates whether this country's administrative subdivision "
+            "below 'state_id' should be labelled as 'District'.\n"
+            "If checked (default for most countries): the subdivision is "
+            "rendered as 'District' / 'Distrito' in forms and views.\n"
+            "If unchecked: the subdivision is rendered as 'City' / 'Ciudad'.\n"
+            "Example: Panama's 83 subdivisions are formally called "
+            "'distritos' but in this module they are loaded as res.city, "
+            "so the flag is initialized to False and Odoo renders them as "
+            "'City' / 'Ciudad'."
         ),
     )

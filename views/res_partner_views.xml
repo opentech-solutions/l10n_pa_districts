@@ -38,18 +38,31 @@
                 Inserta, justo antes del campo city_id, dos labels mutuamente
                 excluyentes según el flag cities_or_districts del país.
 
-                Como los países por defecto (todos los del mundo) tienen
-                cities_or_districts = True, el label "City" será el visible
-                por defecto. Para Panamá (que se setea a False vía CSV o
-                manualmente) se mostrará "District".
+                Lógica (la convención del nombre del campo es: "el país USA
+                distritos?"). Por lo tanto:
+                  cities_or_districts = True  → el país usa 'District'
+                  cities_or_districts = False → el país usa 'City'
+
+                Como casi todos los países del mundo tienen
+                cities_or_districts = True (default), el label "District"
+                será el visible por defecto. Para Panamá (que se setea a
+                False vía data/res_country_data.xml) se mostrará "City".
             -->
             <field name="city_id" position="before">
                 <label for="city_id"
-                       string="City"
+                       string="District"
                        invisible="country_id and not country_id.cities_or_districts"/>
                 <label for="city_id"
-                       string="District"
+                       string="City"
                        invisible="country_id and country_id.cities_or_districts"/>
+            </field>
+            <!--
+                Placeholder dinámico: cambia entre "District..." y
+                "City..." según el flag del país, igual que el label.
+            -->
+            <field name="city_id" position="attributes">
+                <attribute name="placeholder"
+                           >District...</attribute>
             </field>
         </field>
     </record>
@@ -70,11 +83,15 @@
             <!-- Labels dinámicos para el city_id embebido -->
             <xpath expr="//field[@name='child_ids']//field[@name='city_id']" position="before">
                 <label for="city_id"
-                       string="City"
+                       string="District"
                        invisible="country_id and not country_id.cities_or_districts"/>
                 <label for="city_id"
-                       string="District"
+                       string="City"
                        invisible="country_id and country_id.cities_or_districts"/>
+            </xpath>
+            <!-- Placeholder dinámico para city_id embebido -->
+            <xpath expr="//field[@name='child_ids']//field[@name='city_id']" position="attributes">
+                <attribute name="placeholder">District...</attribute>
             </xpath>
         </field>
     </record>

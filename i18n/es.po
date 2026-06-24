@@ -7,8 +7,8 @@
 # dinámicos de las vistas (views/res_partner_views.xml).
 #
 # Convención:
-#   - "City"     → "Ciudad"     (default, países con ciudades)
-#   - "District" → "Distrito"   (países con distritos, ej. Panamá)
+#   - cities_or_districts = True  → "District" → "Distrito"
+#   - cities_or_districts = False → "City"      → "Ciudad"
 #
 # El campo res.country.cities_or_districts (creado en este módulo)
 # controla cuál de los dos labels se muestra al usuario final.
@@ -21,26 +21,37 @@ msgstr ""
 
 #. module: l10n_pa_districts
 #: model:ir.model.fields,field_description:l10n_pa_districts.field_res_country__cities_or_districts
-msgid "Use \"Districts\" terminology"
-msgstr "Usar terminología \"Distritos\""
+msgid "Uses \"Districts\" terminology"
+msgstr "Usa terminología de \"Distritos\""
 
 #. module: l10n_pa_districts
 #: model:ir.model.fields,help:l10n_pa_districts.field_res_country__cities_or_districts
 msgid ""
-"If checked (default), the standard Odoo terminology is used and the "
-"subdivision below 'state_id' is rendered as 'City'.\n"
-"If unchecked, the subdivision is rendered as 'District' "
-"(or its equivalent translation, e.g. 'Distrito' in Spanish). "
-"Use this for countries whose administrative divisions below the "
-"province/state are formally called districts "
-"(e.g. Panama, where the unit is the 'distrito')."
+"Indicates whether this country's administrative subdivision below "
+"'state_id' should be labelled as 'District'.\n"
+"If checked (default for most countries): the subdivision is rendered "
+"as 'District' / 'Distrito' in forms and views.\n"
+"If unchecked: the subdivision is rendered as 'City' / 'Ciudad'.\n"
+"Example: Panama's 83 subdivisions are formally called 'distritos' but "
+"in this module they are loaded as res.city, so the flag is initialized "
+"to False and Odoo renders them as 'City' / 'Ciudad'."
 msgstr ""
-"Si está marcado (valor por defecto), se usa la terminología estándar "
-"de Odoo y la subdivisión debajo de 'state_id' se muestra como 'Ciudad'.\n"
-"Si está desmarcado, la subdivisión se muestra como 'Distrito'. "
-"Use esto para países cuyas divisiones administrativas debajo de la "
-"provincia/estado se denominan formalmente distritos "
-"(ej. Panamá, donde la unidad es el 'distrito')."
+"Indica si la subdivisión administrativa de este país debajo de "
+"'state_id' debe etiquetarse como 'Distrito'.\n"
+"Si está marcado (valor por defecto en la mayoría de países): la "
+"subdivisión se muestra como 'District' / 'Distrito' en formularios y "
+"vistas.\n"
+"Si está desmarcado: la subdivisión se muestra como 'City' / 'Ciudad'.\n"
+"Ejemplo: las 83 subdivisiones de Panamá se llaman formalmente "
+"'distritos', pero en este módulo se cargan como res.city, por lo que "
+"el flag se inicializa a False y Odoo las muestra como 'City' / "
+"'Ciudad'."
+
+#. module: l10n_pa_districts
+#: model_terms:ir.ui.view,arch_db:l10n_pa_districts.view_partner_form_inherit_city_filter_pa
+#: model_terms:ir.ui.view,arch_db:l10n_pa_districts.view_partner_form_inherit_child_city_filter_pa
+msgid "District"
+msgstr "Distrito"
 
 #. module: l10n_pa_districts
 #: model_terms:ir.ui.view,arch_db:l10n_pa_districts.view_partner_form_inherit_city_filter_pa
@@ -51,5 +62,5 @@ msgstr "Ciudad"
 #. module: l10n_pa_districts
 #: model_terms:ir.ui.view,arch_db:l10n_pa_districts.view_partner_form_inherit_city_filter_pa
 #: model_terms:ir.ui.view,arch_db:l10n_pa_districts.view_partner_form_inherit_child_city_filter_pa
-msgid "District"
-msgstr "Distrito"
+msgid "District..."
+msgstr "Distrito..."

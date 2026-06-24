@@ -8,8 +8,8 @@
 # los msgid explícitamente.
 #
 # Convención:
-#   - "City"     → "City"     (default, países con ciudades)
-#   - "District" → "District" (países con distritos, ej. Panamá)
+#   - cities_or_districts = True  → "District"
+#   - cities_or_districts = False → "City"
 #
 # El campo res.country.cities_or_districts (creado en este módulo)
 # controla cuál de los dos labels se muestra al usuario final.
@@ -22,27 +22,35 @@ msgstr ""
 
 #. module: l10n_pa_districts
 #: model:ir.model.fields,field_description:l10n_pa_districts.field_res_country__cities_or_districts
-msgid "Use \"Districts\" terminology"
-msgstr "Use \"Districts\" terminology"
+msgid "Uses \"Districts\" terminology"
+msgstr "Uses \"Districts\" terminology"
 
 #. module: l10n_pa_districts
 #: model:ir.model.fields,help:l10n_pa_districts.field_res_country__cities_or_districts
 msgid ""
-"If checked (default), the standard Odoo terminology is used and the "
-"subdivision below 'state_id' is rendered as 'City'.\n"
-"If unchecked, the subdivision is rendered as 'District' "
-"(or its equivalent translation, e.g. 'Distrito' in Spanish). "
-"Use this for countries whose administrative divisions below the "
-"province/state are formally called districts "
-"(e.g. Panama, where the unit is the 'distrito')."
+"Indicates whether this country's administrative subdivision below "
+"'state_id' should be labelled as 'District'.\n"
+"If checked (default for most countries): the subdivision is rendered "
+"as 'District' / 'Distrito' in forms and views.\n"
+"If unchecked: the subdivision is rendered as 'City' / 'Ciudad'.\n"
+"Example: Panama's 83 subdivisions are formally called 'distritos' but "
+"in this module they are loaded as res.city, so the flag is initialized "
+"to False and Odoo renders them as 'City' / 'Ciudad'."
 msgstr ""
-"If checked (default), the standard Odoo terminology is used and the "
-"subdivision below 'state_id' is rendered as 'City'.\n"
-"If unchecked, the subdivision is rendered as 'District' "
-"(or its equivalent translation, e.g. 'Distrito' in Spanish). "
-"Use this for countries whose administrative divisions below the "
-"province/state are formally called districts "
-"(e.g. Panama, where the unit is the 'distrito')."
+"Indicates whether this country's administrative subdivision below "
+"'state_id' should be labelled as 'District'.\n"
+"If checked (default for most countries): the subdivision is rendered "
+"as 'District' / 'Distrito' in forms and views.\n"
+"If unchecked: the subdivision is rendered as 'City' / 'Ciudad'.\n"
+"Example: Panama's 83 subdivisions are formally called 'distritos' but "
+"in this module they are loaded as res.city, so the flag is initialized "
+"to False and Odoo renders them as 'City' / 'Ciudad'."
+
+#. module: l10n_pa_districts
+#: model_terms:ir.ui.view,arch_db:l10n_pa_districts.view_partner_form_inherit_city_filter_pa
+#: model_terms:ir.ui.view,arch_db:l10n_pa_districts.view_partner_form_inherit_child_city_filter_pa
+msgid "District"
+msgstr "District"
 
 #. module: l10n_pa_districts
 #: model_terms:ir.ui.view,arch_db:l10n_pa_districts.view_partner_form_inherit_city_filter_pa
@@ -53,5 +61,5 @@ msgstr "City"
 #. module: l10n_pa_districts
 #: model_terms:ir.ui.view,arch_db:l10n_pa_districts.view_partner_form_inherit_city_filter_pa
 #: model_terms:ir.ui.view,arch_db:l10n_pa_districts.view_partner_form_inherit_child_city_filter_pa
-msgid "District"
-msgstr "District"
+msgid "District..."
+msgstr "District..."
