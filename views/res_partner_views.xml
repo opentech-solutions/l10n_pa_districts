@@ -2,51 +2,79 @@
 <odoo>
 
     <!--
-        Filtra la lista de distritos por PAÍS y PROVINCIA cuando el
+        ===========================================================================
+        l10n_pa_districts - res.partner views
+        ===========================================================================
+
+        Filtra la lista de distritos/ciudades por PAÍS y PROVINCIA cuando el
         usuario selecciona una dirección en Panamá.
 
-        El módulo base_address_extended solo filtra por país:
-            domain="[('country_id', '=', country_id)]"
+        Además, hace que el LABEL del campo city_id cambie dinámicamente
+        según el flag cities_or_districts del país:
 
-        Para Panamá (donde cada provincia tiene entre 3 y 13 distritos)
-        queremos refinar el dominio para mostrar solo los distritos
-        de la provincia seleccionada:
+            cities_or_districts = True  → "City"      (o "Ciudad" en es)
+            cities_or_districts = False → "District"  (o "Distrito" en es)
 
-            domain="['|',
-                     ('state_id', '=', False),
-                     '&',
-                     ('country_id', '=', country_id),
-                     '|',
-                     ('state_id', '=', state_id),
-                     ('state_id', '=', False)]"
-
-        La estructura con OR/Falso permite que la lista siga funcionando
-        incluso si el usuario aún no ha seleccionado provincia.
+        El truco de Odoo para tener dos labels alternativos es usar dos
+        <label for="..."> con atributos invisible mutuamente excluyentes.
     -->
 
-    <!-- 1) Vista principal del partner (Empresa y Contacto individual) -->
+    <!--
+        1) Vista principal del partner (Empresa y Contacto individual).
+
+        Heredamos de base_address_extended.address_street_extended_city_form
+        (que es donde está el campo city_id).
+    -->
     <record id="view_partner_form_inherit_city_filter_pa" model="ir.ui.view">
         <field name="name">res.partner.form.inherit.city.filter.pa</field>
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base_address_extended.address_street_extended_city_form"/>
         <field name="arch" type="xml">
-            <!-- Filtra city_id en el formulario principal -->
+            <!-- Filtra city_id por país + provincia -->
             <field name="city_id" position="attributes">
                 <attribute name="domain">['|', ('state_id', '=', False), '&amp;', ('country_id', '=', country_id), '|', ('state_id', '=', state_id), ('state_id', '=', False)]</attribute>
+            </field>
+            <!--
+                Inserta, justo antes del campo city_id, dos labels mutuamente
+                excluyentes según el flag cities_or_districts del país.
+
+                Como los países por defecto (todos los del mundo) tienen
+                cities_or_districts = True, el label "City" será el visible
+                por defecto. Para Panamá (que se setea a False vía CSV o
+                manualmente) se mostrará "District".
+            -->
+            <field name="city_id" position="before">
+                <label for="city_id"
+                       string="City"
+                       invisible="country_id and not country_id.cities_or_districts"/>
+                <label for="city_id"
+                       string="District"
+                       invisible="country_id and country_id.cities_or_districts"/>
             </field>
         </field>
     </record>
 
-    <!-- 2) Vista del formulario embedido de child_ids (direcciones de
-            contacto dentro de una empresa) -->
+    <!--
+        2) Vista del formulario embedido de child_ids (direcciones de
+            contacto dentro de una empresa).
+    -->
     <record id="view_partner_form_inherit_child_city_filter_pa" model="ir.ui.view">
         <field name="name">res.partner.form.child.city.filter.pa</field>
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base_address_extended.address_street_extended_city_form"/>
         <field name="arch" type="xml">
-            <!-- Filtra el city_id insertado dentro del xpath de child_ids -->
+            <!-- Filtra el city_id dentro del xpath de child_ids -->
             <xpath expr="//field[@name='child_ids']//field[@name='city_id']" position="attributes">
                 <attribute name="domain">['|', ('state_id', '=', False), '&amp;', ('country_id', '=', country_id), '|', ('state_id', '=', state_id), ('state_id', '=', False)]</attribute>
+            </xpath>
+            <!-- Labels dinámicos para el city_id embebido -->
+            <xpath expr="//field[@name='child_ids']//field[@name='city_id']" position="before">
+                <label for="city_id"
+                       string="City"
+                       invisible="country_id and not country_id.cities_or_districts"/>
+                <label for="city_id"
+                       string="District"
+                       invisible="country_id and country_id.cities_or_districts"/>
             </xpath>
         </field>
     </record>

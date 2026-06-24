@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!--
+            Inicializa cities_or_districts = False para Panamá.
+
+            El campo se creó en este módulo (l10n_pa_districts) con
+            default True para mantener compatibilidad con todos los
+            demás países del mundo. Panamá es la excepción porque su
+            unidad administrativa debajo de la provincia es el
+            "distrito" (no la "ciudad"). Por eso en este registro
+            forzamos el flag a False.
+
+            Esto hace que en todos los formularios de contacto de
+            Odoo, cuando el país es Panamá:
+              - El label del campo city_id se renderiza como "District"
+                (en inglés) o "Distrito" (en español).
+              - El placeholder cambia a "District..." / "Distrito...".
+              - El menú y listados muestran "Districts" / "Distritos".
+
+            Nota: el id "base.pa" es el xml_id estándar del país
+            Panamá cargado por el módulo "base" de Odoo.
+        -->
+        <record id="base.pa" model="res.country">
+            <field name="cities_or_districts" eval="False"/>
+        </record>
+
+    </data>
+</odoo>

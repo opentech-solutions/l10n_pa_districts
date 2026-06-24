@@ -1,20 +1,21 @@
-# Spanish (es) translations for l10n_pa_districts module.
+# English (en) translations for l10n_pa_districts module.
 # Copyright (C) 2026 OPENTECH SOLUTIONS by ROSERO ONE
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl-3.0).
 #
-# Este archivo contiene las traducciones al español para los
-# literales "City" y "District" que el módulo usa en labels
-# dinámicos de las vistas (views/res_partner_views.xml).
+# Este archivo contiene las traducciones al inglés (idioma base
+# de Odoo) para los literales usados en el módulo. Sirve como
+# referencia y para que los generadores de PO de Odoo detecten
+# los msgid explícitamente.
 #
 # Convención:
-#   - "City"     → "Ciudad"     (default, países con ciudades)
-#   - "District" → "Distrito"   (países con distritos, ej. Panamá)
+#   - "City"     → "City"     (default, países con ciudades)
+#   - "District" → "District" (países con distritos, ej. Panamá)
 #
 # El campo res.country.cities_or_districts (creado en este módulo)
 # controla cuál de los dos labels se muestra al usuario final.
 msgid ""
 msgstr ""
-"Language: es\n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "X-Generator: Odoo\n"
@@ -22,7 +23,7 @@ msgstr ""
 #. module: l10n_pa_districts
 #: model:ir.model.fields,field_description:l10n_pa_districts.field_res_country__cities_or_districts
 msgid "Use \"Districts\" terminology"
-msgstr "Usar terminología \"Distritos\""
+msgstr "Use \"Districts\" terminology"
 
 #. module: l10n_pa_districts
 #: model:ir.model.fields,help:l10n_pa_districts.field_res_country__cities_or_districts
@@ -35,21 +36,22 @@ msgid ""
 "province/state are formally called districts "
 "(e.g. Panama, where the unit is the 'distrito')."
 msgstr ""
-"Si está marcado (valor por defecto), se usa la terminología estándar "
-"de Odoo y la subdivisión debajo de 'state_id' se muestra como 'Ciudad'.\n"
-"Si está desmarcado, la subdivisión se muestra como 'Distrito'. "
-"Use esto para países cuyas divisiones administrativas debajo de la "
-"provincia/estado se denominan formalmente distritos "
-"(ej. Panamá, donde la unidad es el 'distrito')."
+"If checked (default), the standard Odoo terminology is used and the "
+"subdivision below 'state_id' is rendered as 'City'.\n"
+"If unchecked, the subdivision is rendered as 'District' "
+"(or its equivalent translation, e.g. 'Distrito' in Spanish). "
+"Use this for countries whose administrative divisions below the "
+"province/state are formally called districts "
+"(e.g. Panama, where the unit is the 'distrito')."
 
 #. module: l10n_pa_districts
 #: model_terms:ir.ui.view,arch_db:l10n_pa_districts.view_partner_form_inherit_city_filter_pa
 #: model_terms:ir.ui.view,arch_db:l10n_pa_districts.view_partner_form_inherit_child_city_filter_pa
 msgid "City"
-msgstr "Ciudad"
+msgstr "City"
 
 #. module: l10n_pa_districts
 #: model_terms:ir.ui.view,arch_db:l10n_pa_districts.view_partner_form_inherit_city_filter_pa
 #: model_terms:ir.ui.view,arch_db:l10n_pa_districts.view_partner_form_inherit_child_city_filter_pa
 msgid "District"
-msgstr "Distrito"
+msgstr "District"

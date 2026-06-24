@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!--
+            Añade el campo cities_or_districts en el formulario de país.
+            Se coloca junto a otras opciones geográficas (zip_required,
+            state_required) ya existentes en la vista de Odoo base.
+        -->
+        <record id="view_country_form_inherit_cities_or_districts" model="ir.ui.view">
+            <field name="name">res.country.form.inherit.cities.or.districts</field>
+            <field name="model">res.country</field>
+            <field name="inherit_id" ref="base.view_country_form"/>
+            <field name="arch" type="xml">
+                <field name="state_required" position="after">
+                    <field name="cities_or_districts"/>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</odoo>
