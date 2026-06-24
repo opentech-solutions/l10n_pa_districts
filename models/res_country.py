@@ -21,16 +21,40 @@ class ResCountry(models.Model):
 
     cities_or_districts = fields.Boolean(
         string='Uses "Districts" terminology',
-        default=True,
+        default=False,
         help=(
             "Indicates whether this country's administrative subdivision "
-            "below 'state_id' should be labelled as 'District'.\n"
-            "If checked (default for most countries): the subdivision is "
-            "rendered as 'District' / 'Distrito' in forms and views.\n"
-            "If unchecked: the subdivision is rendered as 'City' / 'Ciudad'.\n"
-            "Example: Panama's 83 subdivisions are formally called "
-            "'distritos' but in this module they are loaded as res.city, "
-            "so the flag is initialized to False and Odoo renders them as "
-            "'City' / 'Ciudad'."
+            "below 'state_id' is called a 'District' instead of a 'City'.\n"
+            "If checked: the city_id field is rendered with the label "
+            "'District' and placeholder 'District...'.\n"
+            "If unchecked (default, like most countries): the city_id field "
+            "is rendered with the label 'City' and placeholder 'City...'.\n"
+            "Use this for countries whose subdivisions below the "
+            "province/state are formally called districts. Example: "
+            "Panama (PA), where the 83 subdivisions are 'distritos'."
         ),
     )
+
+
+class ResPartner(models.Model):
+    _inherit = 'res.partner'
+
+    city_id_placeholder = fields.Char(
+        string='City Placeholder',
+        compute='_compute_city_id_placeholder',
+        help=(
+            "Dynamic placeholder for the city_id field. Set to 'District...' "
+            "when the country uses districts (cities_or_districts=True), "
+            "otherwise 'City...'."
+        ),
+    )
+
+    def _compute_city_id_placeholder(self):
+        """Compute the placeholder for city_id based on the country."""
+        city_label = self.env._('City...')
+        district_label = self.env._('District...')
+        for partner in self:
+            if partner.country_id and partner.country_id.cities_or_districts:
+                partner.city_id_placeholder = district_label
+            else:
+                partner.city_id_placeholder = city_label

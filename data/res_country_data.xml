@@ -1,29 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data noupdate="1">
+    <!--
+        Nota: NO usamos noupdate="1" aquí porque queremos que en cada
+        -u del módulo el valor se reaplique (por si alguien lo cambió
+        manualmente desde la UI). Para mantener la idempotencia, el
+        módulo solo setea cities_or_districts=True para Panamá; no
+        toca otros países.
+    -->
+    <data>
 
         <!--
-            Inicializa cities_or_districts = False para Panamá.
+            Inicializa cities_or_districts = True para Panamá.
 
             El campo se creó en este módulo (l10n_pa_districts) con
-            default True para mantener compatibilidad con todos los
-            demás países del mundo. Panamá es la excepción porque su
-            unidad administrativa debajo de la provincia es el
-            "distrito" (no la "ciudad"). Por eso en este registro
-            forzamos el flag a False.
+            default False para mantener compatibilidad con la mayoría
+            de países del mundo (que usan "city" como terminología).
+            Panamá es la excepción: su unidad administrativa debajo
+            de la provincia es el "distrito" (no la "ciudad"), por
+            lo que forzamos el flag a True.
 
             Esto hace que en todos los formularios de contacto de
             Odoo, cuando el país es Panamá:
               - El label del campo city_id se renderiza como "District"
                 (en inglés) o "Distrito" (en español).
               - El placeholder cambia a "District..." / "Distrito...".
-              - El menú y listados muestran "Districts" / "Distritos".
+
+            Para cualquier otro país (USA, México, Colombia, etc.)
+            el label queda como "City" / "Ciudad" (default de Odoo).
 
             Nota: el id "base.pa" es el xml_id estándar del país
             Panamá cargado por el módulo "base" de Odoo.
         -->
         <record id="base.pa" model="res.country">
-            <field name="cities_or_districts" eval="False"/>
+            <field name="cities_or_districts" eval="True"/>
         </record>
 
     </data>

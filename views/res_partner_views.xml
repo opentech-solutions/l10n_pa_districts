@@ -6,17 +6,19 @@
         l10n_pa_districts - res.partner views
         ===========================================================================
 
-        Filtra la lista de distritos/ciudades por PAÍS y PROVINCIA cuando el
-        usuario selecciona una dirección en Panamá.
+        Hace que el LABEL y el PLACEHOLDER del campo city_id cambien
+        dinámicamente según el flag cities_or_districts del país:
 
-        Además, hace que el LABEL del campo city_id cambie dinámicamente
-        según el flag cities_or_districts del país:
+            cities_or_districts = True  → "District"  (país usa distritos)
+            cities_or_districts = False → "City"      (default, mayoría países)
 
-            cities_or_districts = True  → "City"      (o "Ciudad" en es)
-            cities_or_districts = False → "District"  (o "Distrito" en es)
+        Para el LABEL se usan dos <label for="..."> con atributos invisible
+        mutuamente excluyentes (técnica estándar de Odoo v19).
 
-        El truco de Odoo para tener dos labels alternativos es usar dos
-        <label for="..."> con atributos invisible mutuamente excluyentes.
+        Para el PLACEHOLDER se usa la opción nativa de Odoo
+        options="{'placeholder_field': 'city_id_placeholder'}" que lee
+        dinámicamente el valor del campo computado city_id_placeholder
+        definido en res.partner (models/res_country.py).
     -->
 
     <!--
@@ -33,20 +35,16 @@
             <!-- Filtra city_id por país + provincia -->
             <field name="city_id" position="attributes">
                 <attribute name="domain">['|', ('state_id', '=', False), '&amp;', ('country_id', '=', country_id), '|', ('state_id', '=', state_id), ('state_id', '=', False)]</attribute>
+                <attribute name="options">{'placeholder_field': 'city_id_placeholder', 'no_quick_create': True}</attribute>
             </field>
             <!--
-                Inserta, justo antes del campo city_id, dos labels mutuamente
-                excluyentes según el flag cities_or_districts del país.
+                Inserta, justo antes del campo city_id, dos labels
+                mutuamente excluyentes según el flag cities_or_districts
+                del país.
 
-                Lógica (la convención del nombre del campo es: "el país USA
-                distritos?"). Por lo tanto:
-                  cities_or_districts = True  → el país usa 'District'
-                  cities_or_districts = False → el país usa 'City'
-
-                Como casi todos los países del mundo tienen
-                cities_or_districts = True (default), el label "District"
-                será el visible por defecto. Para Panamá (que se setea a
-                False vía data/res_country_data.xml) se mostrará "City".
+                Lógica:
+                  cities_or_districts = True  → mostrar "District"
+                  cities_or_districts = False → mostrar "City"
             -->
             <field name="city_id" position="before">
                 <label for="city_id"
@@ -55,14 +53,6 @@
                 <label for="city_id"
                        string="City"
                        invisible="country_id and country_id.cities_or_districts"/>
-            </field>
-            <!--
-                Placeholder dinámico: cambia entre "District..." y
-                "City..." según el flag del país, igual que el label.
-            -->
-            <field name="city_id" position="attributes">
-                <attribute name="placeholder"
-                           >District...</attribute>
             </field>
         </field>
     </record>
@@ -79,6 +69,7 @@
             <!-- Filtra el city_id dentro del xpath de child_ids -->
             <xpath expr="//field[@name='child_ids']//field[@name='city_id']" position="attributes">
                 <attribute name="domain">['|', ('state_id', '=', False), '&amp;', ('country_id', '=', country_id), '|', ('state_id', '=', state_id), ('state_id', '=', False)]</attribute>
+                <attribute name="options">{'placeholder_field': 'city_id_placeholder', 'no_quick_create': True}</attribute>
             </xpath>
             <!-- Labels dinámicos para el city_id embebido -->
             <xpath expr="//field[@name='child_ids']//field[@name='city_id']" position="before">
@@ -88,10 +79,6 @@
                 <label for="city_id"
                        string="City"
                        invisible="country_id and country_id.cities_or_districts"/>
-            </xpath>
-            <!-- Placeholder dinámico para city_id embebido -->
-            <xpath expr="//field[@name='child_ids']//field[@name='city_id']" position="attributes">
-                <attribute name="placeholder">District...</attribute>
             </xpath>
         </field>
     </record>

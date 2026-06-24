@@ -29,22 +29,52 @@ msgstr "Uses \"Districts\" terminology"
 #: model:ir.model.fields,help:l10n_pa_districts.field_res_country__cities_or_districts
 msgid ""
 "Indicates whether this country's administrative subdivision below "
-"'state_id' should be labelled as 'District'.\n"
-"If checked (default for most countries): the subdivision is rendered "
-"as 'District' / 'Distrito' in forms and views.\n"
-"If unchecked: the subdivision is rendered as 'City' / 'Ciudad'.\n"
-"Example: Panama's 83 subdivisions are formally called 'distritos' but "
-"in this module they are loaded as res.city, so the flag is initialized "
-"to False and Odoo renders them as 'City' / 'Ciudad'."
+"'state_id' is called a 'District' instead of a 'City'.\n"
+"If checked: the city_id field is rendered with the label 'District' "
+"and placeholder 'District...'.\n"
+"If unchecked (default, like most countries): the city_id field is "
+"rendered with the label 'City' and placeholder 'City...'.\n"
+"Use this for countries whose subdivisions below the province/state "
+"are formally called districts. Example: Panama (PA), where the 83 "
+"subdivisions are 'distritos'."
 msgstr ""
 "Indicates whether this country's administrative subdivision below "
-"'state_id' should be labelled as 'District'.\n"
-"If checked (default for most countries): the subdivision is rendered "
-"as 'District' / 'Distrito' in forms and views.\n"
-"If unchecked: the subdivision is rendered as 'City' / 'Ciudad'.\n"
-"Example: Panama's 83 subdivisions are formally called 'distritos' but "
-"in this module they are loaded as res.city, so the flag is initialized "
-"to False and Odoo renders them as 'City' / 'Ciudad'."
+"'state_id' is called a 'District' instead of a 'City'.\n"
+"If checked: the city_id field is rendered with the label 'District' "
+"and placeholder 'District...'.\n"
+"If unchecked (default, like most countries): the city_id field is "
+"rendered with the label 'City' and placeholder 'City...'.\n"
+"Use this for countries whose subdivisions below the province/state "
+"are formally called districts. Example: Panama (PA), where the 83 "
+"subdivisions are 'distritos'."
+
+#. module: l10n_pa_districts
+#: model:ir.model.fields,field_description:l10n_pa_districts.field_res_partner__city_id_placeholder
+msgid "City Placeholder"
+msgstr "City Placeholder"
+
+#. module: l10n_pa_districts
+#: model:ir.model.fields,help:l10n_pa_districts.field_res_partner__city_id_placeholder
+msgid ""
+"Dynamic placeholder for the city_id field. Set to 'District...' when "
+"the country uses districts (cities_or_districts=True), otherwise "
+"'City...'."
+msgstr ""
+"Dynamic placeholder for the city_id field. Set to 'District...' when "
+"the country uses districts (cities_or_districts=True), otherwise "
+"'City...'."
+
+#. module: l10n_pa_districts
+#. odoo-python
+#: code:addons/l10n_pa_districts/models/res_country.py:0
+msgid "City..."
+msgstr "City..."
+
+#. module: l10n_pa_districts
+#. odoo-python
+#: code:addons/l10n_pa_districts/models/res_country.py:0
+msgid "District..."
+msgstr "District..."
 
 #. module: l10n_pa_districts
 #: model_terms:ir.ui.view,arch_db:l10n_pa_districts.view_partner_form_inherit_city_filter_pa
@@ -57,9 +87,3 @@ msgstr "District"
 #: model_terms:ir.ui.view,arch_db:l10n_pa_districts.view_partner_form_inherit_child_city_filter_pa
 msgid "City"
 msgstr "City"
-
-#. module: l10n_pa_districts
-#: model_terms:ir.ui.view,arch_db:l10n_pa_districts.view_partner_form_inherit_city_filter_pa
-#: model_terms:ir.ui.view,arch_db:l10n_pa_districts.view_partner_form_inherit_child_city_filter_pa
-msgid "District..."
-msgstr "District..."
