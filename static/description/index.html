@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Panamá - Distritos (ISO 3166-2:PA)</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+</head>
+
+<body style="font-family: 'Montserrat', system-ui, sans-serif; background-color: #71639e08;">
+
+<div class="container-fluid px-4">
+
+    <!-- ============================================================ -->
+    <!-- Soporte y disponibilidad                                     -->
+    <!-- ============================================================ -->
+    <div class="supports my-3 py-3"
+         style="border: 2px solid #e9ecef; padding: 0 35px; border-radius: 10px; background-color: white;">
+        <div class="row justify-content-between align-items-center">
+            <div class="col-lg-3">
+                <div class="my-3 mx-auto mx-sm-0" style="width: 250px;">
+                    <img src="icon.png" alt="l10n_pa_districts" style="width: 100%;">
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="my-3 d-flex align-items-center justify-content-center justify-content-sm-end flex-wrap">
+                    <span class="me-3"><b>Compatible con:</b></span>
+                    <div class="d-flex align-items-center justify-content-center text-center mx-1 px-3 py-1"
+                         style="border: 2px solid #ebebeb; color: #333; font-weight: 500; border-radius: 20px; min-width: 140px;">
+                        <img src="assets/tick.png" alt="" width="18" height="18" class="me-1">
+                        Community
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center text-center mx-1 px-3 py-1"
+                         style="border: 2px solid #ebebeb; color: #333; font-weight: 500; border-radius: 20px; min-width: 140px;">
+                        <img src="assets/tick.png" alt="" width="18" height="18" class="me-1">
+                        Enterprise
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center text-center mx-1 px-3 py-1"
+                         style="border: 2px solid #ebebeb; color: #333; font-weight: 500; border-radius: 20px; min-width: 140px;">
+                        <img src="assets/tick.png" alt="" width="18" height="18" class="me-1">
+                        Odoo.sh
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center text-center mx-1 px-3 py-1"
+                         style="border: 2px solid #ebebeb; color: #333; font-weight: 500; border-radius: 20px; min-width: 140px;">
+                        <img src="assets/tick.png" alt="" width="18" height="18" class="me-1">
+                        On-Premise
+                    </div>
+                </div>
+                <div class="d-flex align-items-center justify-content-end flex-wrap mt-2">
+                    <span class="me-3"><b>Versión:</b></span>
+                    <div class="d-flex align-items-center text-center mx-1 px-3 py-1"
+                         style="border: 2px solid #ebebeb; color: #333; font-weight: 500; border-radius: 20px; min-width: 130px;">
+                        <span style="font-size:1.4em;line-height:1;color:#71639e;font-weight:700;">O</span>
+                        &nbsp;19.0.1.0.0
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- Banner a todo el ancho                                       -->
+    <!-- ============================================================ -->
+    <div class="my-3"
+         style="border: 2px solid #e9ecef; border-radius: 10px; overflow: hidden;">
+        <img src="banner.jpg" alt="Panamá - Distritos ISO 3166-2:PA" style="width: 100%; display: block;">
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- Descripción principal                                        -->
+    <!-- ============================================================ -->
+    <section class="my-4 p-4"
+             style="border: 2px solid #e9ecef; border-radius: 10px; background-color: white;">
+        <h2 class="mb-3" style="color:#333;">
+            <span style="color:#005AA7;font-size:1.3em;">📍</span>
+            Panamá - Distritos (cabeceras de distrito)
+        </h2>
+        <p class="mb-3" style="color:#555;">
+            <code>l10n_pa_districts</code> carga los <strong>83 distritos oficiales</strong>
+            de la República de Panamá como registros del modelo estándar
+            <code>res.city</code>, asociados a su provincia o comarca
+            correspondiente (<code>res.country.state</code> cargado por
+            <code>l10n_pa_provinces</code>) y al país Panamá (<code>base.pa</code>).
+        </p>
+        <p class="mb-0" style="color:#555;">
+            En Panamá, el equivalente administrativo de "ciudad/municipio"
+            es el <strong>distrito</strong>. Este módulo renombra la etiqueta
+            "Ciudad" a <strong>"Distrito"</strong> mediante
+            <code>i18n/es.po</code>, manteniendo compatibilidad total con
+            los flujos estándar de Odoo (direcciones en Contactos, Empresa,
+            ventas y facturación).
+        </p>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- Stats                                                        -->
+    <!-- ============================================================ -->
+    <section class="my-4 p-4"
+             style="border: 2px solid #e9ecef; border-radius: 10px; background-color: white;">
+        <div class="row text-center">
+            <div class="col-md-3 col-sm-6 mb-3">
+                <div style="background-color:#005AA7; color:#fff; padding: 20px; border-radius: 10px;">
+                    <div style="font-size:2.2em;line-height:1;">🏙️</div>
+                    <h2 class="mb-0 mt-2">83</h2>
+                    <small>Distritos</small>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-3">
+                <div style="background-color:#875A7B; color:#fff; padding: 20px; border-radius: 10px;">
+                    <div style="font-size:2.2em;line-height:1;">🏢</div>
+                    <h2 class="mb-0 mt-2">10</h2>
+                    <small>Provincias</small>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-3">
+                <div style="background-color:#D21034; color:#fff; padding: 20px; border-radius: 10px;">
+                    <div style="font-size:2.2em;line-height:1;">🌐</div>
+                    <h2 class="mb-0 mt-2">4</h2>
+                    <small>Comarcas</small>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-3">
+                <div style="background-color:#21b799; color:#fff; padding: 20px; border-radius: 10px;">
+                    <div style="font-size:2.2em;line-height:1;">🗄️</div>
+                    <h2 class="mb-0 mt-2" style="font-size:1.4rem;">res.city</h2>
+                    <small>Modelo estándar</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- Distritos por provincia (PA-1 a PA-10)                       -->
+    <!-- ============================================================ -->
+    <section class="my-4 p-4"
+             style="border: 2px solid #e9ecef; border-radius: 10px; background-color: white;">
+        <h2 class="mb-3" style="color:#333;">
+            <span style="color:#005AA7;font-size:1.3em;">🏙️</span>
+            Distritos por provincia
+        </h2>
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <span><span style="background-color:#005AA7;color:#fff;padding:3px 8px;border-radius:4px;font-weight:600;">PA-1</span> 4 distritos <small class="text-muted ms-2">Bocas del Toro</small></span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <span><span style="background-color:#005AA7;color:#fff;padding:3px 8px;border-radius:4px;font-weight:600;">PA-2</span> 6 distritos <small class="text-muted ms-2">Coclé</small></span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <span><span style="background-color:#005AA7;color:#fff;padding:3px 8px;border-radius:4px;font-weight:600;">PA-3</span> 5 distritos <small class="text-muted ms-2">Colón</small></span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <span><span style="background-color:#005AA7;color:#fff;padding:3px 8px;border-radius:4px;font-weight:600;">PA-4</span> 14 distritos <small class="text-muted ms-2">Chiriquí</small></span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <span><span style="background-color:#005AA7;color:#fff;padding:3px 8px;border-radius:4px;font-weight:600;">PA-5</span> 4 distritos <small class="text-muted ms-2">Darién</small></span>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <span><span style="background-color:#005AA7;color:#fff;padding:3px 8px;border-radius:4px;font-weight:600;">PA-6</span> 7 distritos <small class="text-muted ms-2">Herrera</small></span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <span><span style="background-color:#005AA7;color:#fff;padding:3px 8px;border-radius:4px;font-weight:600;">PA-7</span> 7 distritos <small class="text-muted ms-2">Los Santos</small></span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <span><span style="background-color:#005AA7;color:#fff;padding:3px 8px;border-radius:4px;font-weight:600;">PA-8</span> 6 distritos <small class="text-muted ms-2">Panamá</small></span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <span><span style="background-color:#005AA7;color:#fff;padding:3px 8px;border-radius:4px;font-weight:600;">PA-9</span> 12 distritos <small class="text-muted ms-2">Veraguas</small></span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <span><span style="background-color:#005AA7;color:#fff;padding:3px 8px;border-radius:4px;font-weight:600;">PA-10</span> 5 distritos <small class="text-muted ms-2">Panamá Oeste</small></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- Distritos por comarca (PA-EM, PA-KY, PA-NB, PA-NT)           -->
+    <!-- ============================================================ -->
+    <section class="my-4 p-4"
+             style="border: 2px solid #e9ecef; border-radius: 10px; background-color: white;">
+        <h2 class="mb-3" style="color:#333;">
+            <span style="color:#D21034;font-size:1.3em;">🌐</span>
+            Distritos por comarca / región indígena
+        </h2>
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <span><span style="background-color:#D21034;color:#fff;padding:3px 8px;border-radius:4px;font-weight:600;">PA-EM</span> 2 distritos <small class="text-muted ms-2">Emberá</small></span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <span><span style="background-color:#D21034;color:#fff;padding:3px 8px;border-radius:4px;font-weight:600;">PA-KY</span> 1 distrito <small class="text-muted ms-2">Guna Yala</small></span>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <span><span style="background-color:#D21034;color:#fff;padding:3px 8px;border-radius:4px;font-weight:600;">PA-NB</span> 9 distritos <small class="text-muted ms-2">Ngäbe-Buglé</small></span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <span><span style="background-color:#D21034;color:#fff;padding:3px 8px;border-radius:4px;font-weight:600;">PA-NT</span> 1 distrito <small class="text-muted ms-2">Naso Tjër Di</small></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- Capturas                                                     -->
+    <!-- ============================================================ -->
+    <section class="my-4 p-4"
+             style="border: 2px solid #e9ecef; border-radius: 10px; background-color: white;">
+        <h2 class="mb-3" style="color:#333;">
+            <span style="color:#005AA7;font-size:1.3em;">🖼️</span>
+            Capturas de pantalla
+        </h2>
+        <div class="row g-3">
+            <div class="col-md-6">
+                <div class="card shadow-sm">
+                    <img src="assets/screenshots/list.png" class="card-img-top" alt="Vista lista de distritos">
+                    <div class="card-body">
+                        <h6 class="card-title mb-0" style="color:#333;">
+                            <span style="display:inline-block;">📋</span> Lista de distritos
+                        </h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card shadow-sm">
+                    <img src="assets/screenshots/form.png" class="card-img-top" alt="Vista formulario de distrito">
+                    <div class="card-body">
+                        <h6 class="card-title mb-0" style="color:#333;">
+                            <span style="display:inline-block;">📄</span> Formulario de distrito
+                        </h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- Características                                              -->
+    <!-- ============================================================ -->
+    <section class="my-4 p-4"
+             style="border: 2px solid #e9ecef; border-radius: 10px; background-color: white;">
+        <h2 class="mb-3" style="color:#333;">
+            <span style="color:#005AA7;font-size:1.3em;">✅</span>
+            Características
+        </h2>
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="list-unstyled" style="color:#555;">
+                    <li class="mb-2"><span style="color:#28a745;font-weight:700;">✓</span>
+                        <strong>83 distritos oficiales</strong> cargados como <code>res.city</code>.
+                    </li>
+                    <li class="mb-2"><span style="color:#28a745;font-weight:700;">✓</span>
+                        Cada distrito asociado a su <strong>provincia o comarca</strong>.
+                    </li>
+                    <li class="mb-2"><span style="color:#28a745;font-weight:700;">✓</span>
+                        País Panamá (<code>base.pa</code>) en cada registro.
+                    </li>
+                    <li class="mb-2"><span style="color:#28a745;font-weight:700;">✓</span>
+                        Etiqueta <strong>"Ciudad" → "Distrito"</strong> en español.
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <ul class="list-unstyled" style="color:#555;">
+                    <li class="mb-2"><span style="color:#28a745;font-weight:700;">✓</span>
+                        <strong>Depende</strong> de <code>l10n_pa_provinces</code> (forzado).
+                    </li>
+                    <li class="mb-2"><span style="color:#28a745;font-weight:700;">✓</span>
+                        Visible en formularios de <strong>Contacto</strong> y <strong>Empresa</strong>.
+                    </li>
+                    <li class="mb-2"><span style="color:#28a745;font-weight:700;">✓</span>
+                        Compatible con cualquier módulo que use <code>res.city</code>.
+                    </li>
+                    <li class="mb-2"><span style="color:#28a745;font-weight:700;">✓</span>
+                        Actualizable con <code>-u l10n_pa_districts</code>.
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- Instalación                                                  -->
+    <!-- ============================================================ -->
+    <section class="my-4 p-4"
+             style="border: 2px solid #e9ecef; border-radius: 10px; background-color: white;">
+        <h2 class="mb-3" style="color:#333;">
+            <span style="color:#005AA7;font-size:1.3em;">⬇️</span>
+            Instalación
+        </h2>
+        <div class="alert alert-warning" role="alert">
+            <strong>Requisito:</strong> este módulo depende de
+            <code>l10n_pa_provinces</code>. Odoo no permitirá instalar
+            <code>l10n_pa_districts</code> sin antes instalar el módulo
+            de provincias.
+        </div>
+        <ol style="color:#555;">
+            <li>Asegúrese de tener instalado <code>l10n_pa_provinces</code>.</li>
+            <li>Copie la carpeta <code>l10n_pa_districts</code> dentro de su directorio de <code>addons</code>.</li>
+            <li>Reinicie Odoo o actualice la lista de módulos desde <em>Ajustes → Técnico → Módulos locales</em>.</li>
+            <li>Instale el módulo <strong>Panamá - Distritos</strong>.</li>
+            <li>Vaya a <em>Contactos → Configuración → País: Panamá → Ciudades/Distritos</em>.</li>
+        </ol>
+        <p class="text-muted mb-0">
+            Si la base ya estaba creada, ejecute <code>-u l10n_pa_districts</code>
+            al iniciar Odoo para forzar la carga del CSV.
+        </p>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- Soporte                                                      -->
+    <!-- ============================================================ -->
+    <section class="my-4 p-4"
+             style="border: 2px solid #e9ecef; border-radius: 10px; background-color: white;">
+        <div class="text-center mb-4">
+            <div style="font-size:2.5rem;color:#005AA7;">🛟</div>
+            <h2 class="mt-2 mb-1" style="color:#333;">Soporte</h2>
+            <p class="mb-0" style="color:#555;">
+                ¿Necesita ayuda, reporta un problema o tiene una mejora que sugerir?
+            </p>
+        </div>
+        <div class="row justify-content-center text-center">
+            <div class="col-md-4 mb-3">
+                <div class="p-3 h-100"
+                     style="border: 2px solid #ebebeb; border-radius: 10px;">
+                    <div style="font-size:1.8rem;color:#71639e;">🏢</div>
+                    <h6 class="mt-2 mb-1" style="color:#333;">Autor</h6>
+                    <p class="mb-0" style="color:#555;">
+                        <b>OPENTECH SOLUTIONS</b><br>
+                        <span style="color:#888;">by ROSERO ONE</span>
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="p-3 h-100"
+                     style="border: 2px solid #ebebeb; border-radius: 10px;">
+                    <div style="font-size:1.8rem;color:#71639e;">✉️</div>
+                    <h6 class="mt-2 mb-1" style="color:#333;">Email</h6>
+                    <p class="mb-0">
+                        <a href="mailto:info@opentech.solutions"
+                           style="color:#005AA7; text-decoration:none;">
+                            info@opentech.solutions
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="p-3 h-100"
+                     style="border: 2px solid #ebebeb; border-radius: 10px;">
+                    <div style="font-size:1.8rem;color:#71639e;">🌐</div>
+                    <h6 class="mt-2 mb-1" style="color:#333;">Web</h6>
+                    <p class="mb-0">
+                        <a href="https://www.opentech.solutions" target="_blank"
+                           style="color:#005AA7; text-decoration:none;">
+                            www.opentech.solutions
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-3" style="color:#888; font-size: 0.9rem;">
+            Licencia: <b>LGPL-3</b>
+        </div>
+    </section>
+
+</div>
+
+</body>
+</html>

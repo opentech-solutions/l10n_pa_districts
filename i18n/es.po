@@ -1,0 +1,75 @@
+# Spanish (es) translations for l10n_pa_districts module.
+# Copyright (C) 2026 OPENTECH SOLUTIONS by ROSERO ONE
+# License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl-3.0).
+msgid ""
+msgstr ""
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"X-Generator: Odoo\n"
+
+#. module: base_address_extended
+#: model:ir.ui.menu,name:base_address_extended.menu_res_city
+msgid "Cities"
+msgstr "Distritos"
+
+#. module: base_address_extended
+#: model_terms:ir.ui.view,arch_db:base_address_extended.view_city_tree
+msgid "City"
+msgstr "Distrito"
+
+#. module: base_address_extended
+#: model_terms:ir.ui.view,arch_db:base_address_extended.view_city_filter
+msgid "Search City"
+msgstr "Buscar Distrito"
+
+#. module: base_address_extended
+#: model_terms:ir.ui.view,arch_db:base_address_extended.address_street_extended_form
+msgid "City"
+msgstr "Distrito"
+
+#. module: base_address_extended
+#: model_terms:ir.ui.view,arch_db:base_address_extended.address_street_extended_form
+msgid "State"
+msgstr "Provincia"
+
+#. module: base_address_extended
+#: model_terms:ir.ui.view,arch_db:base_address_extended.address_street_extended_form
+msgid "Country"
+msgstr "País"
+
+#. module: base_address_extended
+#: model_terms:ir.ui.view,arch_db:base_address_extended.address_street_extended_city_form
+msgid "City"
+msgstr "Distrito"
+
+#. module: base_address_extended
+#: model:ir.model.fields,field_description:base_address_extended.field_res_city__zipcode
+msgid "Zip"
+msgstr "Código postal"
+
+#. module: l10n_pa_districts
+#: model:ir.model,name:base.model_res_city
+msgid "City"
+msgstr "Distrito"
+
+#. module: l10n_pa_districts
+#. odoo-python
+#: code:addons/base/models/res_city.py:0
+msgid "City"
+msgstr "Distrito"
+
+#. module: l10n_pa_districts
+#: model:ir.model.fields,field_description:base.field_res_city__name
+msgid "Name"
+msgstr "Distrito"
+
+#. module: l10n_pa_districts
+#: model:ir.model.fields,field_description:base.field_res_city__country_id
+msgid "Country"
+msgstr "País"
+
+#. module: l10n_pa_districts
+#: model:ir.model.fields,field_description:base.field_res_city__state_id
+msgid "State"
+msgstr "Provincia"

@@ -1,0 +1,84 @@
+id,country_id:id,state_id:id,name
+pa_city_pa_1_1,base.pa,l10n_pa_provinces.pa_state_1,Bocas del Toro
+pa_city_pa_1_2,base.pa,l10n_pa_provinces.pa_state_1,Changuinola
+pa_city_pa_1_3,base.pa,l10n_pa_provinces.pa_state_1,Chiriquí Grande
+pa_city_pa_1_4,base.pa,l10n_pa_provinces.pa_state_1,Almirante
+pa_city_pa_2_1,base.pa,l10n_pa_provinces.pa_state_2,Penonomé
+pa_city_pa_2_2,base.pa,l10n_pa_provinces.pa_state_2,Aguadulce
+pa_city_pa_2_3,base.pa,l10n_pa_provinces.pa_state_2,Antón
+pa_city_pa_2_4,base.pa,l10n_pa_provinces.pa_state_2,La Pintada
+pa_city_pa_2_5,base.pa,l10n_pa_provinces.pa_state_2,Natá
+pa_city_pa_2_6,base.pa,l10n_pa_provinces.pa_state_2,Olá
+pa_city_pa_3_1,base.pa,l10n_pa_provinces.pa_state_3,Colón
+pa_city_pa_3_2,base.pa,l10n_pa_provinces.pa_state_3,Portobelo
+pa_city_pa_3_3,base.pa,l10n_pa_provinces.pa_state_3,Donoso
+pa_city_pa_3_4,base.pa,l10n_pa_provinces.pa_state_3,Santa Isabel
+pa_city_pa_3_5,base.pa,l10n_pa_provinces.pa_state_3,Chagres
+pa_city_pa_4_1,base.pa,l10n_pa_provinces.pa_state_4,David
+pa_city_pa_4_2,base.pa,l10n_pa_provinces.pa_state_4,Alanje
+pa_city_pa_4_3,base.pa,l10n_pa_provinces.pa_state_4,Barú
+pa_city_pa_4_4,base.pa,l10n_pa_provinces.pa_state_4,Boquerón
+pa_city_pa_4_5,base.pa,l10n_pa_provinces.pa_state_4,Boquete
+pa_city_pa_4_6,base.pa,l10n_pa_provinces.pa_state_4,Bugaba
+pa_city_pa_4_7,base.pa,l10n_pa_provinces.pa_state_4,David
+pa_city_pa_4_8,base.pa,l10n_pa_provinces.pa_state_4,Dolega
+pa_city_pa_4_9,base.pa,l10n_pa_provinces.pa_state_4,Gualaca
+pa_city_pa_4_10,base.pa,l10n_pa_provinces.pa_state_4,Remedios
+pa_city_pa_4_11,base.pa,l10n_pa_provinces.pa_state_4,Renacimiento
+pa_city_pa_4_12,base.pa,l10n_pa_provinces.pa_state_4,San Félix
+pa_city_pa_4_13,base.pa,l10n_pa_provinces.pa_state_4,San Lorenzo
+pa_city_pa_4_14,base.pa,l10n_pa_provinces.pa_state_4,Tolé
+pa_city_pa_5_1,base.pa,l10n_pa_provinces.pa_state_5,La Palma
+pa_city_pa_5_2,base.pa,l10n_pa_provinces.pa_state_5,Chepigana
+pa_city_pa_5_3,base.pa,l10n_pa_provinces.pa_state_5,Pinogana
+pa_city_pa_5_4,base.pa,l10n_pa_provinces.pa_state_5,Sambú
+pa_city_pa_6_1,base.pa,l10n_pa_provinces.pa_state_6,Chitré
+pa_city_pa_6_2,base.pa,l10n_pa_provinces.pa_state_6,Las Minas
+pa_city_pa_6_3,base.pa,l10n_pa_provinces.pa_state_6,Los Pozos
+pa_city_pa_6_4,base.pa,l10n_pa_provinces.pa_state_6,Ocú
+pa_city_pa_6_5,base.pa,l10n_pa_provinces.pa_state_6,Parita
+pa_city_pa_6_6,base.pa,l10n_pa_provinces.pa_state_6,Pesé
+pa_city_pa_6_7,base.pa,l10n_pa_provinces.pa_state_6,Santa María
+pa_city_pa_7_1,base.pa,l10n_pa_provinces.pa_state_7,Las Tablas
+pa_city_pa_7_2,base.pa,l10n_pa_provinces.pa_state_7,Guararé
+pa_city_pa_7_3,base.pa,l10n_pa_provinces.pa_state_7,Los Santos
+pa_city_pa_7_4,base.pa,l10n_pa_provinces.pa_state_7,Macaracas
+pa_city_pa_7_5,base.pa,l10n_pa_provinces.pa_state_7,Pedasí
+pa_city_pa_7_6,base.pa,l10n_pa_provinces.pa_state_7,Pocrí
+pa_city_pa_7_7,base.pa,l10n_pa_provinces.pa_state_7,Tonosí
+pa_city_pa_8_1,base.pa,l10n_pa_provinces.pa_state_8,Panamá
+pa_city_pa_8_2,base.pa,l10n_pa_provinces.pa_state_8,San Miguelito
+pa_city_pa_8_3,base.pa,l10n_pa_provinces.pa_state_8,Balboa
+pa_city_pa_8_4,base.pa,l10n_pa_provinces.pa_state_8,Chepo
+pa_city_pa_8_5,base.pa,l10n_pa_provinces.pa_state_8,Chimán
+pa_city_pa_8_6,base.pa,l10n_pa_provinces.pa_state_8,Taboga
+pa_city_pa_9_1,base.pa,l10n_pa_provinces.pa_state_9,Santiago
+pa_city_pa_9_2,base.pa,l10n_pa_provinces.pa_state_9,Atalaya
+pa_city_pa_9_3,base.pa,l10n_pa_provinces.pa_state_9,Calobre
+pa_city_pa_9_4,base.pa,l10n_pa_provinces.pa_state_9,Cañazas
+pa_city_pa_9_5,base.pa,l10n_pa_provinces.pa_state_9,La Mesa
+pa_city_pa_9_6,base.pa,l10n_pa_provinces.pa_state_9,Las Palmas
+pa_city_pa_9_7,base.pa,l10n_pa_provinces.pa_state_9,Mariato
+pa_city_pa_9_8,base.pa,l10n_pa_provinces.pa_state_9,Montijo
+pa_city_pa_9_9,base.pa,l10n_pa_provinces.pa_state_9,Río de Jesús
+pa_city_pa_9_10,base.pa,l10n_pa_provinces.pa_state_9,San Francisco
+pa_city_pa_9_11,base.pa,l10n_pa_provinces.pa_state_9,Santa Fe
+pa_city_pa_9_12,base.pa,l10n_pa_provinces.pa_state_9,Sona
+pa_city_pa_10_1,base.pa,l10n_pa_provinces.pa_state_10,Arraiján
+pa_city_pa_10_2,base.pa,l10n_pa_provinces.pa_state_10,Capira
+pa_city_pa_10_3,base.pa,l10n_pa_provinces.pa_state_10,Chame
+pa_city_pa_10_4,base.pa,l10n_pa_provinces.pa_state_10,La Chorrera
+pa_city_pa_10_5,base.pa,l10n_pa_provinces.pa_state_10,San Carlos
+pa_city_pa_em_1,base.pa,l10n_pa_provinces.pa_state_em,Unión Chocó
+pa_city_pa_em_2,base.pa,l10n_pa_provinces.pa_state_em,Cémaco
+pa_city_pa_ky_1,base.pa,l10n_pa_provinces.pa_state_ky,El Porvenir
+pa_city_pa_nb_1,base.pa,l10n_pa_provinces.pa_state_nb,Buabidí
+pa_city_pa_nb_2,base.pa,l10n_pa_provinces.pa_state_nb,Mironó
+pa_city_pa_nb_3,base.pa,l10n_pa_provinces.pa_state_nb,Nole Duima
+pa_city_pa_nb_4,base.pa,l10n_pa_provinces.pa_state_nb,Nurum
+pa_city_pa_nb_5,base.pa,l10n_pa_provinces.pa_state_nb,Jirondai
+pa_city_pa_nb_6,base.pa,l10n_pa_provinces.pa_state_nb,Santa Catalina
+pa_city_pa_nb_7,base.pa,l10n_pa_provinces.pa_state_nb,Kankintú
+pa_city_pa_nb_8,base.pa,l10n_pa_provinces.pa_state_nb,Kusapín
+pa_city_pa_nb_9,base.pa,l10n_pa_provinces.pa_state_nb,Besiko
+pa_city_pa_nt_1,base.pa,l10n_pa_provinces.pa_state_nt,Bonyic
