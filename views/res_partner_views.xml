@@ -37,11 +37,22 @@
         <field name="inherit_id" ref="base_address_extended.address_street_extended_city_form"/>
         <field name="arch" type="xml">
             <!--
-                Filtra city_id por país + provincia y activa el
+                Filtra city_id por país + provincia, vacía el placeholder
+                estático (que viene heredado como "Distrito" en español
+                de la vista padre base_address_extended) y activa el
                 placeholder dinámico nativo de Odoo.
+
+                Importante: el atributo placeholder="" es necesario
+                porque la vista padre (base_address_extended) tiene
+                placeholder="City"/"Distrito" hardcoded según idioma.
+                Sin vaciarlo, Odoo prioriza el estático cuando el
+                dinámico no es "truthy" en algunos casos. Con placeholder=""
+                + placeholder_field, el cliente web siempre usa el
+                campo dinámico.
             -->
             <field name="city_id" position="attributes">
                 <attribute name="domain">['|', ('state_id', '=', False), '&amp;', ('country_id', '=', country_id), '|', ('state_id', '=', state_id), ('state_id', '=', False)]</attribute>
+                <attribute name="placeholder"></attribute>
                 <attribute name="options">{'placeholder_field': 'city_id_placeholder', 'no_quick_create': True}</attribute>
             </field>
             <!--
@@ -66,9 +77,11 @@
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base_address_extended.address_street_extended_city_form"/>
         <field name="arch" type="xml">
-            <!-- Filtra el city_id dentro del xpath de child_ids y placeholder dinámico -->
+            <!-- Filtra el city_id dentro del xpath de child_ids, vacía placeholder
+                estático heredado y activa el placeholder dinámico nativo. -->
             <xpath expr="//field[@name='child_ids']//field[@name='city_id']" position="attributes">
                 <attribute name="domain">['|', ('state_id', '=', False), '&amp;', ('country_id', '=', country_id), '|', ('state_id', '=', state_id), ('state_id', '=', False)]</attribute>
+                <attribute name="placeholder"></attribute>
                 <attribute name="options">{'placeholder_field': 'city_id_placeholder', 'no_quick_create': True}</attribute>
                 <attribute name="nolabel">1</attribute>
             </xpath>
