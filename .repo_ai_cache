@@ -1,0 +1,4 @@
+KEY: description|2bbd8d2374c15034bebc034e82cc6659ad851f62a1655f1892db3d9e275a0500
+DESC: Módulo para Panamá que carga los 83 distritos oficiales como registros de Odoo, asociándolos a sus provincias o comarcas correspondientes.
+MODEL: qwen2.5:7b
+WHEN: 2026-06-24T14:12:43-05:00

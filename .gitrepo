@@ -1,0 +1,18 @@
+# =============================================================================
+# .gitrepo - Configuración para bin/repo.sh init
+# Define los datos mínimos para crear el repo remoto (GitHub/GitLab).
+# Este archivo SÍ se versiona (no contiene secretos).
+# =============================================================================
+
+[project]
+project_name=l10n_pa_districts
+description=Módulo para Panamá que carga los 83 distritos oficiales como registros de Odoo, asociándolos a sus provincias o comarcas correspondientes.
+default_branch=devs19
+
+[provider]
+provider=github
+org=opentech-solutions
+
+[settings]
+visibility=public
+
