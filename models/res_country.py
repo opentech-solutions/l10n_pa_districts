@@ -13,7 +13,7 @@
 #    la GNU LESSER GENERAL PUBLIC LICENSE (LGPL v3) para más detalles.
 #
 ###############################################################################
-from odoo import fields, models
+from odoo import api, fields, models
 
 
 class ResCountry(models.Model):
@@ -35,6 +35,20 @@ class ResCountry(models.Model):
         ),
     )
 
+    def _l10n_pa_districts_reset_non_pa(self):
+        """Forza cities_or_districts=False para todos los países distintos
+        a Panamá. Pensado para ser invocado desde data XML al instalar
+        o actualizar el módulo.
+
+        Panamá queda intacto (True, asignado por el <record> en el XML).
+        """
+        pa_id = self.env.ref('base.pa', raise_if_not_found=False)
+        if not pa_id:
+            return
+        countries = self.search([('id', '!=', pa_id.id)])
+        countries.write({'cities_or_districts': False})
+        return countries
+
 
 class ResPartner(models.Model):
     _inherit = 'res.partner'
@@ -49,8 +63,13 @@ class ResPartner(models.Model):
         ),
     )
 
+    @api.depends('country_id', 'country_id.cities_or_districts')
     def _compute_city_id_placeholder(self):
-        """Compute the placeholder for city_id based on the country."""
+        """Compute the placeholder for city_id based on the country.
+
+        Es critical el @api.depends: si Odoo no sabe qué campos disparan
+        el recálculo, el placeholder queda stale al cambiar el país.
+        """
         city_label = self.env._('City...')
         district_label = self.env._('District...')
         for partner in self:

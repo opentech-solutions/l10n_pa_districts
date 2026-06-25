@@ -1,39 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+
     <!--
-        Nota: NO usamos noupdate="1" aquí porque queremos que en cada
-        -u del módulo el valor se reaplique (por si alguien lo cambió
-        manualmente desde la UI). Para mantener la idempotencia, el
-        módulo solo setea cities_or_districts=True para Panamá; no
-        toca otros países.
+        ===========================================================================
+        l10n_pa_districts - data/res_country_data.xml
+        ===========================================================================
+
+        Inicializa correctamente el flag cities_or_districts en TODOS los
+        países para que SOLO Panamá quede en True (porque sus 83
+        subdivisiones son distritos). El resto del mundo queda en False
+        (label "City" / "Ciudad").
+
+        Estrategia:
+          1) <record id="base.pa"> → fuerza True para Panamá.
+          2) <function> que invoca el método
+             res.country._l10n_pa_districts_reset_non_pa() para poner
+             False en todos los países distintos a Panamá.
+
+        Importante: este archivo NO usa noupdate="1" porque queremos
+        que en cada -u del módulo el estado se restaure (por si el
+        admin cambió manualmente el flag desde la UI).
     -->
-    <data>
 
-        <!--
-            Inicializa cities_or_districts = True para Panamá.
+    <data noupdate="0">
 
-            El campo se creó en este módulo (l10n_pa_districts) con
-            default False para mantener compatibilidad con la mayoría
-            de países del mundo (que usan "city" como terminología).
-            Panamá es la excepción: su unidad administrativa debajo
-            de la provincia es el "distrito" (no la "ciudad"), por
-            lo que forzamos el flag a True.
-
-            Esto hace que en todos los formularios de contacto de
-            Odoo, cuando el país es Panamá:
-              - El label del campo city_id se renderiza como "District"
-                (en inglés) o "Distrito" (en español).
-              - El placeholder cambia a "District..." / "Distrito...".
-
-            Para cualquier otro país (USA, México, Colombia, etc.)
-            el label queda como "City" / "Ciudad" (default de Odoo).
-
-            Nota: el id "base.pa" es el xml_id estándar del país
-            Panamá cargado por el módulo "base" de Odoo.
-        -->
+        <!-- 1) Panamá: True (sus subdivisiones son distritos) -->
         <record id="base.pa" model="res.country">
             <field name="cities_or_districts" eval="True"/>
         </record>
+
+        <!--
+            2) Resto del mundo: False (mayoría usa ciudades).
+
+            Llamamos al método definido en models/res_country.py sobre
+            el modelo res.country. El método setea False en todos los
+            países distintos a Panamá.
+
+            Si en el futuro añades OTRO país con ciudades_or_districts=True
+            (ej. Liberia con condados, Corea del Norte con distritos
+            especiales, etc.) debes:
+              a) Marcarlo explícitamente en este XML con un <record>.
+              b) Excluirlo del domain del método Python.
+        -->
+        <function model="res.country"
+                  name="_l10n_pa_districts_reset_non_pa">
+            <value>[]</value>
+        </function>
 
     </data>
 </odoo>
