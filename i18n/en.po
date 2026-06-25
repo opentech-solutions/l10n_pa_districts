@@ -71,6 +71,12 @@ msgid "City..."
 msgstr "City..."
 
 #. module: l10n_pa_districts
+#: model_terms:ir.ui.view,arch_db:l10n_pa_districts.view_partner_form_inherit_city_filter_pa
+#: model_terms:ir.ui.view,arch_db:l10n_pa_districts.view_partner_form_inherit_child_city_filter_pa
+msgid "City or District"
+msgstr "City or District"
+
+#. module: l10n_pa_districts
 #. odoo-python
 #: code:addons/l10n_pa_districts/models/res_country.py:0
 msgid "District..."
