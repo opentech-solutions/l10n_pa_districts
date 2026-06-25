@@ -56,6 +56,7 @@ class ResPartner(models.Model):
     city_id_placeholder = fields.Char(
         string='City Placeholder',
         compute='_compute_city_id_placeholder',
+        store=True,
         help=(
             "Dynamic placeholder for the city_id field. Set to 'District...' "
             "when the country uses districts (cities_or_districts=True), "
