@@ -6,19 +6,23 @@
         l10n_pa_districts - res.partner views
         ===========================================================================
 
-        Hace que el LABEL y el PLACEHOLDER del campo city_id cambien
-        dinámicamente según el flag cities_or_districts del país:
+        NO usamos label dinámico en el formulario de contactos. El campo
+        city_id se muestra sin etiqueta visible; el usuario final identifica
+        el campo por su placeholder.
 
-            cities_or_districts = True  → "District"  (país usa distritos)
-            cities_or_districts = False → "City"      (default, mayoría países)
+        El placeholder es dinámico: Odoo lee el campo computado
+        city_id_placeholder (definido en models/res_country.py sobre
+        res.partner) según el flag cities_or_districts del país:
 
-        Para el LABEL se usan dos <label for="..."> con atributos invisible
-        mutuamente excluyentes (técnica estándar de Odoo v19).
+            cities_or_districts = True  → "District..."  (país usa distritos)
+            cities_or_districts = False → "City..."      (default, mayoría)
 
-        Para el PLACEHOLDER se usa la opción nativa de Odoo
-        options="{'placeholder_field': 'city_id_placeholder'}" que lee
-        dinámicamente el valor del campo computado city_id_placeholder
-        definido en res.partner (models/res_country.py).
+        Para Panamá (base.pa) el módulo inicializa cities_or_districts=True
+        en data/res_country_data.xml, por lo que el placeholder visible
+        será "District..." / "Distrito...".
+
+        El resto de países del mundo mantiene el default False, mostrando
+        "City..." / "Ciudad...".
     -->
 
     <!--
@@ -32,27 +36,23 @@
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base_address_extended.address_street_extended_city_form"/>
         <field name="arch" type="xml">
-            <!-- Filtra city_id por país + provincia -->
+            <!--
+                Filtra city_id por país + provincia y activa el
+                placeholder dinámico nativo de Odoo.
+            -->
             <field name="city_id" position="attributes">
                 <attribute name="domain">['|', ('state_id', '=', False), '&amp;', ('country_id', '=', country_id), '|', ('state_id', '=', state_id), ('state_id', '=', False)]</attribute>
                 <attribute name="options">{'placeholder_field': 'city_id_placeholder', 'no_quick_create': True}</attribute>
             </field>
             <!--
-                Inserta, justo antes del campo city_id, dos labels
-                mutuamente excluyentes según el flag cities_or_districts
-                del país.
-
-                Lógica:
-                  cities_or_districts = True  → mostrar "District"
-                  cities_or_districts = False → mostrar "City"
+                Suprime la etiqueta (label) del field city_id y city.
+                El usuario identificará el campo por su placeholder.
             -->
-            <field name="city_id" position="before">
-                <label for="city_id"
-                       string="District"
-                       invisible="country_id and not country_id.cities_or_districts"/>
-                <label for="city_id"
-                       string="City"
-                       invisible="country_id and country_id.cities_or_districts"/>
+            <field name="city_id" position="attributes">
+                <attribute name="nolabel">1</attribute>
+            </field>
+            <field name="city" position="attributes">
+                <attribute name="nolabel">1</attribute>
             </field>
         </field>
     </record>
@@ -66,19 +66,15 @@
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base_address_extended.address_street_extended_city_form"/>
         <field name="arch" type="xml">
-            <!-- Filtra el city_id dentro del xpath de child_ids -->
+            <!-- Filtra el city_id dentro del xpath de child_ids y placeholder dinámico -->
             <xpath expr="//field[@name='child_ids']//field[@name='city_id']" position="attributes">
                 <attribute name="domain">['|', ('state_id', '=', False), '&amp;', ('country_id', '=', country_id), '|', ('state_id', '=', state_id), ('state_id', '=', False)]</attribute>
                 <attribute name="options">{'placeholder_field': 'city_id_placeholder', 'no_quick_create': True}</attribute>
+                <attribute name="nolabel">1</attribute>
             </xpath>
-            <!-- Labels dinámicos para el city_id embebido -->
-            <xpath expr="//field[@name='child_ids']//field[@name='city_id']" position="before">
-                <label for="city_id"
-                       string="District"
-                       invisible="country_id and not country_id.cities_or_districts"/>
-                <label for="city_id"
-                       string="City"
-                       invisible="country_id and country_id.cities_or_districts"/>
+            <!-- Suprime el label del campo city embebido también -->
+            <xpath expr="//field[@name='child_ids']//field[@name='city']" position="attributes">
+                <attribute name="nolabel">1</attribute>
             </xpath>
         </field>
     </record>
