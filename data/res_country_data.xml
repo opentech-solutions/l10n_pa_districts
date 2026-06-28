@@ -6,16 +6,18 @@
         l10n_pa_districts - data/res_country_data.xml
         ===========================================================================
 
-        Inicializa correctamente el flag cities_or_districts en TODOS los
-        países para que SOLO Panamá quede en True (porque sus 83
-        subdivisiones son distritos). El resto del mundo queda en False
-        (label "City" / "Ciudad").
+        Inicializa correctamente los flags de ciudades en TODOS los países
+        para que SOLO Panamá quede configurado para usar distritos.
 
         Estrategia:
-          1) <record id="base.pa"> → fuerza True para Panamá.
+          1) <record id="base.pa"> → fuerza los flags en Panamá.
           2) <function> que invoca el método
+             res.country._l10n_pa_districts_enforce_cities() como respaldo
+             (porque Odoo a veces ignora el <record> cuando el país ya
+             existía con enforce_cities=False).
+          3) <function> que invoca el método
              res.country._l10n_pa_districts_reset_non_pa() para poner
-             False en todos los países distintos a Panamá.
+             cities_or_districts=False en todos los países distintos a Panamá.
 
         Importante: este archivo NO usa noupdate="1" porque queremos
         que en cada -u del módulo el estado se restaure (por si el
@@ -24,19 +26,45 @@
 
     <data noupdate="0">
 
-        <!-- 1) Panamá: True (sus subdivisiones son distritos) -->
+        <!--
+            1) Panamá: configura ambos flags para forzar el dropdown de
+            distritos en formularios de dirección.
+
+            a) cities_or_districts=1 → label "Distrito" en lugar de "Ciudad"
+               (gestionado por el módulo para etiquetas i18n).
+            b) enforce_cities=1 → Odoo obliga al usuario a seleccionar un
+               distrito del dropdown (city_id) en lugar de escribir el
+               nombre libre como texto. Mismo patrón usado por los módulos
+               oficiales l10n_cn_city (base.cn) y l10n_pe (base.pe).
+
+            Panamá tiene 83 distritos oficiales en res.city, por lo que
+            el dropdown siempre tendrá opciones válidas.
+        -->
         <record id="base.pa" model="res.country">
-            <field name="cities_or_districts" eval="True"/>
+            <field name="cities_or_districts" eval="1"/>
+            <field name="enforce_cities" eval="1"/>
         </record>
 
         <!--
-            2) Resto del mundo: False (mayoría usa ciudades).
+            Como respaldo, forzar enforce_cities=True al final del proceso
+            de carga del módulo. Esto garantiza que el flag se aplique
+            incluso si el <record> anterior fue ignorado por Odoo porque
+            el record base.pa ya existía con enforce_cities=False.
+        -->
+        <function model="res.country"
+                  name="_l10n_pa_districts_enforce_cities">
+            <value>[]</value>
+        </function>
+
+        <!--
+            2) Resto del mundo: cities_or_districts=False (mayoría usa
+            ciudades).
 
             Llamamos al método definido en models/res_country.py sobre
             el modelo res.country. El método setea False en todos los
             países distintos a Panamá.
 
-            Si en el futuro añades OTRO país con ciudades_or_districts=True
+            Si en el futuro añades OTRO país con cities_or_districts=True
             (ej. Liberia con condados, Corea del Norte con distritos
             especiales, etc.) debes:
               a) Marcarlo explícitamente en este XML con un <record>.

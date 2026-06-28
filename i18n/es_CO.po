@@ -1,0 +1,78 @@
+# Spanish (es_CO) translations for l10n_pa_districts module.
+# Copyright (C) 2026 OPENTECH SOLUTIONS by ROSERO ONE
+# License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl-3.0).
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-28 00:55+0000\n"
+"PO-Revision-Date: 2026-06-28 00:55+0000\n"
+"Last-Translator: \n"
+"Language: es_CO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_pa_districts
+#: model:ir.model.fields,field_description:l10n_pa_districts.field_res_country__cities_or_districts
+msgid "Uses \"Districts\" terminology"
+msgstr "Usa terminología de \"Distritos\""
+
+#. module: l10n_pa_districts
+#: model:ir.model.fields,help:l10n_pa_districts.field_res_country__cities_or_districts
+msgid ""
+"Indicates whether this country's administrative subdivision below "
+"'state_id' is called a 'District' instead of a 'City'.\n"
+"If checked: the city_id field is rendered with the label 'District' "
+"and placeholder 'District...'.\n"
+"If unchecked (default, like most countries): the city_id field is "
+"rendered with the label 'City' and placeholder 'City...'.\n"
+"Use this for countries whose subdivisions below the province/state "
+"are formally called districts. Example: Panama (PA), where the 83 "
+"subdivisions are 'distritos'."
+msgstr ""
+"Indica si la subdivisión administrativa de este país debajo de "
+"'state_id' se llama 'Distrito' en lugar de 'Ciudad'.\n"
+"Si está marcado: el campo city_id se muestra con la etiqueta "
+"'Distrito' y el placeholder 'Distrito...'.\n"
+"Si está desmarcado (valor por defecto): el campo city_id se muestra "
+"con la etiqueta 'Ciudad' y el placeholder 'Ciudad...'.\n"
+"Use esto para países cuyas subdivisiones debajo de la "
+"provincia/estado se denominan formalmente distritos. Ejemplo: Panamá "
+"(PA), donde las 83 subdivisiones son 'distritos'."
+
+#. module: l10n_pa_districts
+#: model:ir.model.fields,field_description:l10n_pa_districts.field_res_partner__city_id_placeholder
+msgid "City Placeholder"
+msgstr "Placeholder de Ciudad"
+
+#. module: l10n_pa_districts
+#: model:ir.model.fields,help:l10n_pa_districts.field_res_partner__city_id_placeholder
+msgid ""
+"Dynamic placeholder for the city_id field. Set to 'District...' when "
+"the country uses districts (cities_or_districts=True), otherwise "
+"'City...'."
+msgstr ""
+"Placeholder dinámico para el campo city_id. Es 'Distrito...' cuando "
+"el país usa distritos (cities_or_districts=True), en caso contrario "
+"'Ciudad...'."
+
+#. module: l10n_pa_districts
+#. odoo-python
+#: code:addons/l10n_pa_districts/models/res_country.py:0
+msgid "City..."
+msgstr "Ciudad..."
+
+#. module: l10n_pa_districts
+#: model_terms:ir.ui.view,arch_db:l10n_pa_districts.view_partner_form_inherit_city_filter_pa
+#: model_terms:ir.ui.view,arch_db:l10n_pa_districts.view_partner_form_inherit_child_city_filter_pa
+msgid "City or District"
+msgstr "Ciudad o Distrito"
+
+#. module: l10n_pa_districts
+#. odoo-python
+#: code:addons/l10n_pa_districts/models/res_country.py:0
+msgid "District..."
+msgstr "Distrito..."

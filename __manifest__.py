@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Panamá - Distritos',
-    'version': '19.0.2.0.0',
+    'version': '19.0.2.1.0',
     'category': 'Localization/Geographic Data',
     'summary': 'Carga los distritos de Panamá como ciudades (res.city) con etiqueta "Distrito".',
     'description': """

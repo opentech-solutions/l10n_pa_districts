@@ -49,6 +49,25 @@ class ResCountry(models.Model):
         countries.write({'cities_or_districts': False})
         return countries
 
+    def _l10n_pa_districts_enforce_cities(self):
+        """Fuerza enforce_cities=True para Panamá y =False para el resto.
+
+        Este método se invoca desde data XML al instalar o actualizar
+        el módulo. Sirve como respaldo del <record id="base.pa"> cuando
+        el país ya existía con enforce_cities=False (Odoo no actualiza
+        records externos si solo tienen campos booleanos).
+        """
+        pa_id = self.env.ref('base.pa', raise_if_not_found=False)
+        if not pa_id:
+            return
+        # Panamá: enforce_cities=True (forzar dropdown de distritos).
+        pa_id.write({'enforce_cities': True})
+        # Resto del mundo: enforce_cities=False (default, pero lo
+        # aseguramos explícitamente).
+        other_countries = self.search([('id', '!=', pa_id.id)])
+        other_countries.write({'enforce_cities': False})
+        return pa_id
+
 
 class ResPartner(models.Model):
     _inherit = 'res.partner'
